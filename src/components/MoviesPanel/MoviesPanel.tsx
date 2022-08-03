@@ -1,45 +1,17 @@
+import Movie from './Movie/Movie';
 import './MoviesPanel.css';
 
 function MoviesPanel() {
+
+    const movies = []
+
+    for(let i = 0; i < 10;i++){
+        movies.push(<Movie></Movie>)
+    }
+
     return (
         <div className="movies-container">
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
-            <div className="each-movie-container"></div>
+            {movies}
         </div>
     );
 }
