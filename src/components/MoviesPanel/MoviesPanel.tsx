@@ -1,17 +1,16 @@
 import Movie from './Movie/Movie';
 import './MoviesPanel.css';
+import { filmes } from "../../data/data"
 
 function MoviesPanel() {
 
-    const movies = []
-
-    for(let i = 0; i < 10;i++){
-        movies.push(<Movie></Movie>)
-    }
 
     return (
         <div className="movies-container">
-            {movies}
+            {filmes.map((e) => {
+                //@ts-ignore
+                return <Movie data={e}></Movie>
+            })}
         </div>
     );
 }
