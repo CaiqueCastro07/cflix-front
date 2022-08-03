@@ -1,18 +1,28 @@
 import './Movie.css';
 import { useState } from "react"
 
-function Movie(props:any) {
+function Movie(props: any) {
 
-    const {data} = props || {}
+    const { data } = props || {}
 
-    const [showDescription, setShowDescription] = useState(false)
+    const [topPos, setTopPost] = useState(0)
 
     return (
         <div className="single-movie-container">
-            <div onMouseLeave={()=>setShowDescription(false)} className={showDescription ? "movie-exibition maxroll" : "movie-exibition" }>
-                <div className="img-wrapper"><img className="movie-img" /></div>
-                <div onClick={()=>setShowDescription(true)}  className="title-wrapper">{data?.title}</div>
-                <div  className="description-wrapper">{data?.description}</div>
+            <div style={{top:topPos+"%"}} onMouseEnter={()=>setTopPost(-100)} onMouseLeave={()=>setTopPost(0)} className="movie-exibition">
+                <div className="img-wrapper"><img className="movie-img" src={data?.image} /></div>
+                <div onClick={() => setTopPost(-200)} className="title-wrapper">
+                    <p>{data?.title}</p>
+                    <p>Original: {data?.original_title}</p>
+                    <p>Title romanized: {data?.original_title_romanised}</p>
+                    <p>Director: {data?.director}</p>
+                    <p>Producer: {data?.producer}</p>
+                    <p>Release date: {data?.release_date}</p>
+                    <p>Running time: {data?.running_time}</p>
+                </div>
+                <div onClick={()=>setTopPost(topPos-10)} className="description-wrapper">
+                    {data?.description}
+               </div>
             </div>
         </div>
     );
