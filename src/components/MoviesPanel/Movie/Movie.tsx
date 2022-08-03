@@ -5,13 +5,18 @@ function Movie(props: any) {
 
     const { data } = props || {}
 
-    const [topPos, setTopPost] = useState(0)
+    const [topPos, setTopPos] = useState(0)
+
+    const rode=()=>{
+        console.log("rodei")
+        setTopPos(0)
+    }
 
     return (
-        <div className="single-movie-container">
-            <div style={{top:topPos+"%"}} onMouseEnter={()=>setTopPost(-100)} onMouseLeave={()=>setTopPost(0)} className="movie-exibition">
-                <div className="img-wrapper"><img className="movie-img" src={data?.image} /></div>
-                <div onClick={() => setTopPost(-200)} className="title-wrapper">
+        <div key={data?.id} className="single-movie-container">
+            <div style={{ top: topPos + "%" }} onMouseEnter={() => setTopPos(-100)} onMouseLeave={() => setTopPos(0)} className="movie-exibition">
+                <div onClick={() => setTopPos(-100)} className="img-wrapper"><img className="movie-img" src={data?.image} /></div>
+                <div onClick={() => setTopPos(-200)} className="title-wrapper">
                     <p>{data?.title}</p>
                     <p>Original: {data?.original_title}</p>
                     <p>Title romanized: {data?.original_title_romanised}</p>
@@ -20,9 +25,9 @@ function Movie(props: any) {
                     <p>Release date: {data?.release_date}</p>
                     <p>Running time: {data?.running_time}</p>
                 </div>
-                <div onClick={()=>setTopPost(topPos-10)} className="description-wrapper">
+                <div onClick={() => setTopPos(topPos - 40)} className="description-wrapper">
                     {data?.description}
-               </div>
+                </div>
             </div>
         </div>
     );

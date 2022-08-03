@@ -6,7 +6,7 @@
 
 .page {
   overflow: hidden;
-  background:rgb(39, 6, 6);
+  background-image: linear-gradient(to right, rgb(43, 12, 12),rgb(90, 18, 18),rgb(42, 12, 12)); 
 }
 
 html,

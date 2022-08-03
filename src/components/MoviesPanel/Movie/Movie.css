@@ -1,7 +1,7 @@
 .single-movie-container {
     cursor: pointer;
     overflow: hidden;
-    background:black
+    background-image: linear-gradient(to right, black,rgb(29, 29, 29),black); 
 }
 
 .single-movie-container:hover {
@@ -10,7 +10,7 @@
 
 .movie-exibition {
     display: grid;
-    grid-template-rows: 33.3% 33.3% 33.3%;
+    grid-template-rows: 33.3% 33.3% auto;
     height: 300%;
     width: 100%;
     position: relative;
@@ -25,17 +25,18 @@
     padding-top:5%;
     padding-left:5px;
     padding-right:5px;
-    background:rgb(0, 0, 0);
-    color:white
+    color:white;
+    cursor:pointer
 }
 
 .description-wrapper {
+    background-image: linear-gradient(to right, black,rgb(29, 29, 29),black); 
     padding-top: 5%;
     padding-left:5px;
     padding-right:5px;
-    background:rgb(0, 0, 0);
-    font-size:16px;
-    color:white
+    font-size:18px;
+    color:white;
+    cursor:pointer
 }
 .movie-img{
     width:100%; 
