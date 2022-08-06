@@ -25,7 +25,7 @@ function MoviesPanel(props: any) {
 
     const scrolling_function = () => {
 
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 30) {
             console.log("fetching more.........")
 
             increasePageLimit() && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any) => {
