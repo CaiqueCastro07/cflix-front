@@ -32,7 +32,7 @@ function MoviesPanel(props: any) {
 
             !pageFinal && increasePageLimit() && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any) => {
 
-                Array.isArray(arrayOfFilms) && !arrayOfFilms.length && setPageFinal(true)
+                Array.isArray(arrayOfFilms) && arrayOfFilms.length < 9 && setPageFinal(true)
                 //@ts-ignore
                 Array.isArray(arrayOfFilms) && arrayOfFilms.length && increasePageLimit() && setFilms([...films, ...arrayOfFilms])
                 setLoader(false)
