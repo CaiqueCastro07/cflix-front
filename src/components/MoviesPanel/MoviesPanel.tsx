@@ -9,7 +9,7 @@ function MoviesPanel(props: any) {
 
     const [films, setFilms] = useState([])
     const [loader, setLoader] = useState(false)
-    const [pageFinal,setPageFinal] = useState(false)
+    const [pageFinal, setPageFinal] = useState(false)
 
     const api = new ApiController()
 
@@ -25,10 +25,10 @@ function MoviesPanel(props: any) {
 
     const scrolling_function = () => {
 
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 30) {
-            
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 75) {
+
             console.log("fetching more.........")
-             !pageFinal && setLoader(true)
+            !pageFinal && setLoader(true)
 
             !pageFinal && increasePageLimit() && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any) => {
                 //@ts-ignore
@@ -54,7 +54,7 @@ function MoviesPanel(props: any) {
                 return <Movie data={e}></Movie>
             })}
         </div>
-        {loader ? <div className='spinner rotate'></div>: <></>}
+        {loader ? <div className='spinner rotate'></div> : <></>}
     </>
     );
 }
