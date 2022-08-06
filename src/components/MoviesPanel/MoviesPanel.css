@@ -47,7 +47,7 @@
 }
 
 /* tablet */
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 670px)and (max-width: 451px) {
 
     .movies-container {
         grid-template-columns: repeat(auto-fill, 425px);

@@ -58,9 +58,9 @@
 }
 
 /* tablet */
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 670px) and (min-width: 451px) {
     .title-wrapper{
-        font-size:17px
+        font-size:19px
     }
 
     .description-wrapper {
