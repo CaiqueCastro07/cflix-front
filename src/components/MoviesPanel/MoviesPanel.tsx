@@ -5,7 +5,9 @@ import { useState, useEffect } from 'react';
 
 let pageLimit = 0;
 
-function MoviesPanel(props: any) {
+
+
+function MoviesPanel() {
 
     const [films, setFilms] = useState([])
     const [loader, setLoader] = useState(false)
@@ -13,9 +15,9 @@ function MoviesPanel(props: any) {
 
     const api = new ApiController()
 
-    const increasePageLimit = () => { pageLimit = films.length; return true }
+    const increasePageLimit = ():true => { pageLimit = films.length; return true }
 
-    !films?.length && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any) => {
+    !films?.length && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any[] | false) => {
         //@ts-ignore
         Array.isArray(arrayOfFilms) && arrayOfFilms.length && increasePageLimit() && setFilms([...films, ...arrayOfFilms])
 
@@ -23,14 +25,14 @@ function MoviesPanel(props: any) {
 
     })
 
-    const scrolling_function = () => {
+    const scrolling_function = ():void => {
 
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 75) {
 
             console.log("fetching more.........")
             !pageFinal && setLoader(true)
 
-            !pageFinal && increasePageLimit() && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any) => {
+            !pageFinal && increasePageLimit() && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any[] | false) => {
 
                 Array.isArray(arrayOfFilms) && arrayOfFilms.length < 9 && setPageFinal(true)
                 //@ts-ignore

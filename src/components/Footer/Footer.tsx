@@ -2,7 +2,7 @@ import "./Footer.css"
 
 function Footer() {
 
-    const scrollToTheTop = ()=>{
+    const scrollToTheTop = ():void=>{
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 

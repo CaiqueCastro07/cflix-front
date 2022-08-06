@@ -3,11 +3,11 @@ import { ApiController } from "../../Api/Api"
 
 function Header() {
 
-    const refreshCatalogue = ()=>{
+    const refreshCatalogue = ():void=>{
 
         const api = new ApiController()
 
-        api.refreshMoviesApi().then((res)=>{
+        api.refreshMoviesApi().then((res:boolean)=>{
             window.location.reload()
         }).catch((err)=>{
             window.location.reload()
