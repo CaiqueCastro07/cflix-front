@@ -31,7 +31,7 @@ function MoviesPanel(props: any) {
             !pageFinal && setLoader(true)
 
             !pageFinal && increasePageLimit() && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any) => {
-                //@ts-ignore
+
                 Array.isArray(arrayOfFilms) && !arrayOfFilms.length && setPageFinal(true)
                 //@ts-ignore
                 Array.isArray(arrayOfFilms) && arrayOfFilms.length && increasePageLimit() && setFilms([...films, ...arrayOfFilms])
@@ -50,7 +50,6 @@ function MoviesPanel(props: any) {
     return (<>
         <div className="movies-container">
             {films.map((e) => {
-                //@ts-ignore
                 return <Movie data={e}></Movie>
             })}
         </div>
