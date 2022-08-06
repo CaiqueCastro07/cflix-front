@@ -24,7 +24,6 @@ class ApiController {
                 return false;
             }
             console.log("The server returned:", Array.isArray(response?.data?.data) ? "array" : typeof response?.data?.data)
-            console.log(response.data.data)
             return response?.data?.data
 
         } catch (err) {

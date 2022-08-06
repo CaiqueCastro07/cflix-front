@@ -9,7 +9,7 @@ function MoviesPanel(props: any) {
 
     const [films, setFilms] = useState([])
 
-    console.log("pageLiMIT", pageLimit)
+    console.log("Pagelimit", pageLimit)
 
     const api = new ApiController()
 
