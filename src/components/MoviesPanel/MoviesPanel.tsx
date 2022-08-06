@@ -8,8 +8,8 @@ let pageLimit = 0;
 function MoviesPanel(props: any) {
 
     const [films, setFilms] = useState([])
-
-    console.log("Pagelimit", pageLimit)
+    const [loader, setLoader] = useState(false)
+    const [pageFinal,setPageFinal] = useState(false)
 
     const api = new ApiController()
 
@@ -26,14 +26,19 @@ function MoviesPanel(props: any) {
     const scrolling_function = () => {
 
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 30) {
+            
             console.log("fetching more.........")
+             !pageFinal && setLoader(true)
 
-            increasePageLimit() && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any) => {
+            !pageFinal && increasePageLimit() && api.getFilmsApi(pageLimit, pageLimit + 9).then((arrayOfFilms: any) => {
+                //@ts-ignore
+                Array.isArray(arrayOfFilms) && !arrayOfFilms.length && setPageFinal(true)
                 //@ts-ignore
                 Array.isArray(arrayOfFilms) && arrayOfFilms.length && increasePageLimit() && setFilms([...films, ...arrayOfFilms])
+                setLoader(false)
 
             }).catch((err) => {
-
+                setLoader(false)
             })
 
             window.removeEventListener('scroll', scrolling_function)
@@ -42,13 +47,15 @@ function MoviesPanel(props: any) {
 
     window.addEventListener('scroll', scrolling_function);
 
-    return (
+    return (<>
         <div className="movies-container">
             {films.map((e) => {
                 //@ts-ignore
                 return <Movie data={e}></Movie>
             })}
         </div>
+        {loader ? <div className='spinner rotate'></div>: <></>}
+    </>
     );
 }
 
