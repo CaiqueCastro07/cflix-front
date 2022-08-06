@@ -1,11 +1,23 @@
 import './Header.css';
+import { ApiController } from "../../Api/Api"
 
 function Header() {
+
+    const refreshCatalogue = ()=>{
+
+        const api = new ApiController()
+
+        api.refreshMoviesApi().then((res)=>{
+            window.location.reload()
+        }).catch((err)=>{
+            window.location.reload()
+        })
+    }
 
     return (
         <header className="header">
             <div className="header-container">
-                <div onClick={()=>window.location.reload()} className="logo-wrapper"><img className="logo-img" src={require("../../assets/logo.png")}></img></div>
+                <div onClick={refreshCatalogue} className="logo-wrapper"><img className="logo-img" src={require("../../assets/logo.png")}></img></div>
             </div>
         </header>
     );
